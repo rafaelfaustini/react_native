@@ -9,49 +9,82 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TextInput,
+  Button,
+  ToolbarAndroid
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 type Props = {};
+
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
+      <ToolbarAndroid
+        style={styles.toolbar}
+        title="Cramer"
+        onActionSelected={this.onActionSelected}
+        titleColor= "#FFF"
+        actions = {[
+          {title: "Opções", show: "never"}
+        ]}
+        />
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Equação do Segundo Grau
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
+        <Text style={styles.coeficientes}>
+          Valor de a:
         </Text>
-        <Text style={styles.instructions}>
-          {instructions}
+        <TextInput
+          style={{height: 40,marginLeft: 20, marginRight: 20}}
+          onChangeText={(text) => this.setState({input: text})}
+        />
+        <Text style={styles.coeficientes}>
+          Valor de b:
         </Text>
+        <TextInput
+          style={{height: 40,marginLeft: 20, marginRight: 20}}
+          onChangeText={(text) => this.setState({input: text})}
+        />
+        <Text style={styles.coeficientes}>
+          Valor de c:
+        </Text>
+        <TextInput
+          style={{height: 40,marginLeft: 20, marginRight: 20}}
+          onChangeText={(text) => this.setState({input: text})}
+        />
+        <Button
+          title="Learn More"
+          color="#841584"
+          accessibilityLabel="Learn more about this purple button"
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  toolbar: {
+    backgroundColor: '#2196F3',
+    height: 56,
+    alignSelf: 'stretch',
   },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 15,
   },
   instructions: {
     textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+  coeficientes: {
+    marginLeft: 25,
+    marginTop: 10,
+    textAlign: 'left',
     color: '#333333',
     marginBottom: 5,
   },
