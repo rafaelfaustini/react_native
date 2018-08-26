@@ -31,6 +31,17 @@ export default class App extends Component<Props> {
       <StatusBar backgroundColor="#16a085"
       animated={true}
       />
+      <ToolbarAndroid
+        style={styles.toolbar}
+        title="Snizer Hiit"
+        onActionSelected={this.onActionSelected}
+        titleColor= "#FFF"
+        iconColor="#FFF"
+        overflowIconName="more-vert"
+        actions = {[
+          {title: "Log out", show: "never"}
+        ]}
+        />
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
@@ -46,11 +57,10 @@ export default class App extends Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+  toolbar: {
+    backgroundColor: '#2196F3',
+    height: 56,
+    alignSelf: 'stretch',
   },
   welcome: {
     fontSize: 20,
