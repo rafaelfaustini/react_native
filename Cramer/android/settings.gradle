@@ -1,0 +1,3 @@
+rootProject.name = 'Cramer'
+
+include ':app'
