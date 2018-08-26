@@ -15,20 +15,19 @@ import {
   StatusBar,
   ToolbarAndroid
 } from 'react-native';
+var tempo=0;
+function timer(){
+tempo++;
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+}
+setInterval(timer, 1000);
 
-type Props = {};
+var treino = "Andar";
 export default class App extends Component<Props> {
   render() {
     return (
       <ScrollView>
-      <StatusBar backgroundColor="#16a085"
+      <StatusBar backgroundColor="#2196F3"
       animated={true}
       />
       <ToolbarAndroid
@@ -36,20 +35,15 @@ export default class App extends Component<Props> {
         title="Snizer Hiit"
         onActionSelected={this.onActionSelected}
         titleColor= "#FFF"
-        iconColor="#FFF"
-        overflowIconName="more-vert"
         actions = {[
-          {title: "Log out", show: "never"}
+          {title: "Treinos", show: "never"}
         ]}
         />
-        <Text style={styles.welcome}>
-          Welcome to React Native!
+        <Text style={styles.treino}>
+        {treino}
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
+        <Text style={styles.cronometro}>
+          {tempo}
         </Text>
       </ScrollView>
     );
@@ -62,14 +56,14 @@ const styles = StyleSheet.create({
     height: 56,
     alignSelf: 'stretch',
   },
-  welcome: {
-    fontSize: 20,
+  cronometro: {
+    fontSize: 50,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
+  treino: {
+    fontSize: 40,
     textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    margin: 10,
   },
 });
