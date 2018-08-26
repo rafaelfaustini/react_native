@@ -9,7 +9,11 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  Dimensions,
+  ScrollView,
+  StatusBar,
+  ToolbarAndroid
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -23,7 +27,10 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView>
+      <StatusBar backgroundColor="#16a085"
+      animated={true}
+      />
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
@@ -33,7 +40,7 @@ export default class App extends Component<Props> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
-      </View>
+      </ScrollView>
     );
   }
 }
